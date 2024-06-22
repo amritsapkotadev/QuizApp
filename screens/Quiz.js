@@ -1,7 +1,11 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 
-const Quiz = () => {
+const Quiz = ({ navigation }) => {
+    const handleResult = () => {
+        navigation.navigate('Result');
+    };
+
     return (
         <View style={styles.container}>
             <View style={styles.questionContainer}>
@@ -14,12 +18,10 @@ const Quiz = () => {
                 <TouchableOpacity style={styles.option}>
                     <Text>Option-2</Text>
                 </TouchableOpacity>
-                
 
                 <TouchableOpacity style={styles.option}>
                     <Text>Option-3</Text>
                 </TouchableOpacity>
-
 
                 <TouchableOpacity style={styles.option}>
                     <Text>Option-4</Text>
@@ -33,6 +35,10 @@ const Quiz = () => {
 
                 <TouchableOpacity style={styles.button}>
                     <Text style={styles.text}>Submit</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity onPress={handleResult} style={styles.button}>
+                    <Text style={styles.text}>END</Text>
                 </TouchableOpacity>
             </View>
         </View>
@@ -51,7 +57,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     buttonContainer: {
-        flexDirection: 'row', // Ensure buttons are in a row
+        flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
         marginBottom: 20,

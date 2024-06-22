@@ -1,23 +1,21 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
-
-import Quiz from './screens/Quiz'; 
+import { createStackNavigator } from "@react-navigation/stack";
+import Quiz from './screens/Quiz';
 import Title from "./components/title";
-
+import { NavigationContainer } from "@react-navigation/native";
+import MyStack from "./navigation";
 
 
 const App = () => {
   return (
-    <View style={styles.container}>
-      <Title/>
-      <View style={styles.buttonContainer}>
-        <TouchableOpacity onPress={() => console.log("Button clicked!")} style={styles.button}>
-          <Text style={styles.buttonText}>Click me!</Text>
-        </TouchableOpacity>
-      </View>
-    </View>
+    <NavigationContainer>
+      <MyStack />
+    </NavigationContainer>
+
+
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {

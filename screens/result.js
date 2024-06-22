@@ -1,17 +1,23 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 
-const Result = () => {
+const Result = (navigaton) => {
+    const handlehome = () => {
+        navigaton.navigate('Home');
+    };
     return ( 
         <View style={styles.container}>
             <Text>Result</Text>
 
             <View style={styles.bannerContainer}>
-                <Image source={require('../image/quiz.png')} style={styles.banner} />
+                <Image
+                    style={styles.banner}
+                    source={require('../image/Quiz.png')}
+                />
             </View>
 
             <View style={styles.buttons}>
-                <TouchableOpacity onPress={() => console.log('Home button pressed')}>
+                <TouchableOpacity onpress={handlehome}>
                     <Text>Home</Text>
                 </TouchableOpacity>
             </View>
@@ -36,7 +42,7 @@ const styles = StyleSheet.create({
     },
     buttons: {
         marginTop: 20,
-        backgroundColor: 'lightblue', // Example background color
+        backgroundColor: 'lightblue', 
         padding: 10,
         borderRadius: 5,
     },
