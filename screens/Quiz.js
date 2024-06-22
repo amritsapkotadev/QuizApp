@@ -14,11 +14,12 @@ const Quiz = () => {
                 <TouchableOpacity style={styles.option}>
                     <Text>Option-2</Text>
                 </TouchableOpacity>
+                
 
                 <TouchableOpacity style={styles.option}>
                     <Text>Option-3</Text>
                 </TouchableOpacity>
-                
+
 
                 <TouchableOpacity style={styles.option}>
                     <Text>Option-4</Text>

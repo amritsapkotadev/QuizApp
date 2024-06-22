@@ -23,13 +23,14 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
+        
         alignItems: 'center',
     },
     bannerContainer: {
         marginTop: 20,
     },
     banner: {
-        
+
         width: 200,
         height: 200,
     },
