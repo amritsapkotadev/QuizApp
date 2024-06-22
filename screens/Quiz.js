@@ -1,7 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 
 const Quiz = ({ navigation }) => {
+    const [questions,setquestions]=useState([]);
+    const getQuiz=async()=>{
+         const url ='https://opentdb.com/api.php?amount=10';
+         const resonse = await fetch(url);
+         console.log(resonse);
+    }
+    useEffect(() => {
+        getQuiz();
+    }, []);
     const handleResult = () => {
         navigation.navigate('Result');
     };
@@ -9,22 +18,22 @@ const Quiz = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <View style={styles.questionContainer}>
-                <Text style={styles.question}>This is the question</Text>
+                <Text style={styles.question}>Q. This is the question?</Text>
 
                 <TouchableOpacity style={styles.option}>
-                    <Text>Option-1</Text>
+                    <Text style={styles.optiontext}>Option-1</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity style={styles.option}>
-                    <Text>Option-2</Text>
+                    <Text style={styles.optiontext}>Option-2</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity style={styles.option}>
-                    <Text>Option-3</Text>
+                    <Text style={styles.optiontext}>Option-3</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity style={styles.option}>
-                    <Text>Option-4</Text>
+                    <Text style={styles.optiontext}>Option-4</Text>
                 </TouchableOpacity>
             </View>
 
@@ -37,9 +46,9 @@ const Quiz = ({ navigation }) => {
                     <Text style={styles.text}>Submit</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity onPress={handleResult} style={styles.button}>
+                {/* <TouchableOpacity onPress={handleResult} style={styles.button}>
                     <Text style={styles.text}>END</Text>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
             </View>
         </View>
     );
@@ -50,9 +59,27 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
+        backgroundColor: '#fff',
     },
     questionContainer: {
-        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginHorizontal: 20,
+        marginBottom: 40,
+    },
+    question: {
+        fontSize: 24,
+        marginBottom: 20,
+        textAlign: 'center',
+    },
+    option: {
+        backgroundColor: 'skyblue',
+        padding: 10,
+        borderRadius: 15,
+        marginHorizontal: 20,
+        marginVertical: 10,
+        width: 300,
+        height: 50,
         justifyContent: 'center',
         alignItems: 'center',
     },
@@ -62,29 +89,21 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginBottom: 20,
     },
-    question: {
-        fontSize: 20,
-        marginBottom: 20,
-    },
-    option: {
-        backgroundColor: '#DDDDDD',
-        padding: 10,
-        marginVertical: 5,
-        width: 200,
-        alignItems: 'center',
-    },
     button: {
         backgroundColor: 'purple',
-        padding: 10,
-        marginHorizontal: 10,
-        width: 100,
-        alignItems: 'center',
+        paddingVertical: 12,
+        paddingHorizontal: 20,
         borderRadius: 10,
+        marginHorizontal: 10,
+    },
+    optiontext: {
+        color: 'white',
+        fontWeight: 'bold',
+        fontSize: 16,
     },
     text: {
         color: 'white',
         fontWeight: 'bold',
+        fontSize: 16,
     },
 });
-
-export default Quiz;
