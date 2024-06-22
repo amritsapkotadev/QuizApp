@@ -29,6 +29,7 @@ const styles = StyleSheet.create({
         marginTop: 20,
     },
     banner: {
+        
         width: 200,
         height: 200,
     },
