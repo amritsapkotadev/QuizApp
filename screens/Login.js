@@ -1,5 +1,12 @@
 import React from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  StyleSheet,
+  CheckBox,
+} from 'react-native';
 
 const Login = () => {
   return (
@@ -7,23 +14,41 @@ const Login = () => {
       <Text style={styles.headerText}>Sign in to Your Account</Text>
       <View style={styles.loginContainer}>
         <View style={styles.inputContainer}>
-          <TextInput style={styles.inputtext} placeholder="Enter your username:" />
+          <TextInput
+            style={styles.inputtext}
+            placeholder="Enter your username:"
+          />
         </View>
         <View style={styles.inputContainer}>
-          <TextInput style={styles.inputtext} secureTextEntry={true} placeholder="Enter your password:" />
+          <TextInput
+            style={styles.inputtext}
+            secureTextEntry={true}
+            placeholder="Enter your password:"
+          />
         </View>
-        <TouchableOpacity style={styles.signinButton} onPress={() => handleSignIn()}>
+        <View style={styles.forgotpassword}>
+         <TouchableOpacity> 
+          <Text style={styles.forgotpasswordText}> Forgot password? </Text></TouchableOpacity>
+        </View>
+        <TouchableOpacity
+          style={styles.signinButton}
+          onPress={() => handleSignIn()}>
           <Text style={styles.signinButtonText}>Sign In</Text>
-        </TouchableOpacity>
+        </TouchableOpacity>   
+        <View style={styles.socialLoginContainer}>
+          <TouchableOpacity style={styles.socialButton}>
+            <Text>Login with Google</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.socialButton}>
+            <Text>Login with Facebook</Text>
+          </TouchableOpacity>
+        </View>
+        
         <View style={styles.actionContainer}>
-          <Text>Don't have an account?</Text>
+          <Text style={styles.noaccount}>Don't have an account?</Text>
           <TouchableOpacity style={styles.signupButton}>
             <Text style={styles.signupButtonText}>Signup</Text>
           </TouchableOpacity>
-        </View>
-        <View style={styles.socialLoginContainer}>
-          <TouchableOpacity style={styles.socialButton}><Text>Login with Google</Text></TouchableOpacity>
-          <TouchableOpacity style={styles.socialButton}><Text>Login with Facebook</Text></TouchableOpacity>
         </View>
       </View>
     </View>
@@ -31,7 +56,6 @@ const Login = () => {
 };
 
 const handleSignIn = () => {
-  // Implement your sign-in logic here
   console.log('Signing in...');
 };
 
@@ -56,12 +80,14 @@ const styles = StyleSheet.create({
     paddingVertical: 30,
     elevation: 3,
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
+    shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.8,
     shadowRadius: 2,
+    height: 600,
   },
   inputContainer: {
     marginBottom: 10,
+    marginTop: 10,
   },
   inputtext: {
     height: 50,
@@ -71,31 +97,40 @@ const styles = StyleSheet.create({
     fontSize: 18,
     borderRadius: 5,
   },
+  noaccount: {
+    fontSize: 16,
+    color: 'black',
+  },
   actionContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 10,
+    marginTop: 40,
   },
   signinButton: {
-    backgroundColor: 'lightblue',
+    backgroundColor: '#2196F3',
     padding: 10,
     borderRadius: 5,
     marginTop: 10,
     alignItems: 'center',
+    marginTop: 20,
+    width: '100%',
+    height: 50,
+    alignItems: 'center',
   },
   signinButtonText: {
-    color: 'black',
+    color: 'white',
     textAlign: 'center',
+    fontSize: 18,
   },
   signupButton: {
-    backgroundColor: 'lightblue',
     padding: 10,
     borderRadius: 5,
     marginLeft: 10,
   },
   signupButtonText: {
-    color: 'black',
+    color: 'blue',
     textAlign: 'center',
   },
   socialLoginContainer: {
@@ -109,6 +144,14 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     borderRadius: 5,
   },
+  forgotpassword: {
+    marginTop: 5,
+    paddingLeft:150,
+    
+  },
+forgotpasswordText:{
+color:'blue'
+}
 });
 
 export default Login;
