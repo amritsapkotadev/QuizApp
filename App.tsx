@@ -5,15 +5,15 @@ import Quiz from './screens/Quiz';
 import Title from "./components/title";
 import { NavigationContainer } from "@react-navigation/native";
 import MyStack from "./navigation";
+import Login from "./screens/Login";
+import 'react-native-gesture-handler';
+import { GestureHandlerRootView } from 'react-native-gesture-handler'; // Import GestureHandlerRootView
 
-
-const App = () => {
+function App() {
   return (
-    <NavigationContainer>
-      <MyStack />
-    </NavigationContainer>
-
-
+    <GestureHandlerRootView style={{ flex: 1 }}> 
+      <Login />
+    </GestureHandlerRootView>
   );
 }
 
