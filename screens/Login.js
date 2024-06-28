@@ -11,7 +11,10 @@ const Login = () => {
         </View>
         <View style={styles.inputContainer}>
           <TextInput style={styles.inputtext} secureTextEntry={true} placeholder="Enter your password:" />
-        </View><View style={styles.actionContainer}> <TouchableOpacity> <Text> Signin </Text></TouchableOpacity></View>
+        </View>
+        <TouchableOpacity style={styles.signinButton} onPress={() => handleSignIn()}>
+          <Text style={styles.signinButtonText}>Sign In</Text>
+        </TouchableOpacity>
         <View style={styles.actionContainer}>
           <Text>Don't have an account?</Text>
           <TouchableOpacity style={styles.signupButton}>
@@ -25,6 +28,11 @@ const Login = () => {
       </View>
     </View>
   );
+};
+
+const handleSignIn = () => {
+  // Implement your sign-in logic here
+  console.log('Signing in...');
 };
 
 const styles = StyleSheet.create({
@@ -68,6 +76,17 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 10,
+  },
+  signinButton: {
+    backgroundColor: 'lightblue',
+    padding: 10,
+    borderRadius: 5,
+    marginTop: 10,
+    alignItems: 'center',
+  },
+  signinButtonText: {
+    color: 'black',
+    textAlign: 'center',
   },
   signupButton: {
     backgroundColor: 'lightblue',
