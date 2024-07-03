@@ -8,11 +8,12 @@ import MyStack from "./navigation";
 import Login from "./screens/Login";
 import 'react-native-gesture-handler';
 import { GestureHandlerRootView } from 'react-native-gesture-handler'; // Import GestureHandlerRootView
+import SignUpPage from "./screens/signup";
 
 function App() {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}> 
-      <Login />
+      <Login /> <SignUpPage />
     </GestureHandlerRootView>
   );
 }

@@ -6,8 +6,11 @@ import {
   TouchableOpacity,
   StyleSheet,
   Image,
+  navigation, 
 } from 'react-native';
-
+ const navigatetosignup = () => {
+    navigation.navigate('Signup');
+  };
 const Login = () => {
   const handleSignIn = () => {
     console.log('Signing in...');
@@ -35,9 +38,7 @@ const Login = () => {
             <Text style={styles.forgotpasswordText}>Forgot password?</Text>
           </TouchableOpacity>
         </View>
-        <TouchableOpacity
-          style={styles.signinButton}
-          onPress={handleSignIn}>
+        <TouchableOpacity style={styles.signinButton} onPress={handleSignIn}>
           <Text style={styles.signinButtonText}>Sign In</Text>
         </TouchableOpacity>
         <View style={styles.socialLoginContainer}>
@@ -60,7 +61,7 @@ const Login = () => {
         <View style={styles.actionContainer}>
           <Text style={styles.noaccount}>Don't have an account?</Text>
           <TouchableOpacity style={styles.signupButton}>
-            <Text style={styles.signupButtonText}>Signup</Text>
+            <Text style={styles.signupButtonText} onPress={navigatetosignup}> Signup </Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -89,7 +90,7 @@ const styles = StyleSheet.create({
     paddingVertical: 30,
     elevation: 3,
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
+    shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.8,
     shadowRadius: 2,
   },
@@ -124,12 +125,12 @@ const styles = StyleSheet.create({
     fontSize: 18,
   },
   socialLoginContainer: {
-    
     flexDirection: 'column',
     justifyContent: 'space-between',
     marginTop: 20,
   },
-  socialButton1: {display: 'flex',
+  socialButton1: {
+    display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
     paddingVertical: 10,
@@ -147,13 +148,13 @@ const styles = StyleSheet.create({
     backgroundColor: 'blue',
     marginBottom: 10,
   },
-  banner: { 
+  banner: {
     width: 50,
     height: 50,
     borderRadius: 25,
-    alignItems:'flex-end'
+    alignItems: 'flex-end',
   },
-  
+
   actionContainer: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -167,14 +168,14 @@ const styles = StyleSheet.create({
   signupButton: {
     padding: 10,
     borderRadius: 5,
-    marginLeft: 10,
+    marginTop: 20,
   },
   signupButtonText: {
     color: 'blue',
   },
-forgotpasswordText:{
-color:'blue'
-}
+  forgotpasswordText: {
+    color: 'blue',
+  },
 });
 
 export default Login;
